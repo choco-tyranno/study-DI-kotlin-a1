@@ -1,5 +1,9 @@
 package com.choco_tyranno.studyhilt.data
 
-class MyRepository {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class MyRepository @Inject constructor(){
 
 }

@@ -2,11 +2,21 @@ package com.choco_tyranno.studyhilt.ui.second
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.choco_tyranno.studyhilt.R
+import com.choco_tyranno.studyhilt.data.MyRepository
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SecondActivity : AppCompatActivity() {
+    @Inject
+    lateinit var repository : MyRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("SecondActivity", repository.hashCode().toString())
+
         setContentView(R.layout.activity_second)
     }
 }
