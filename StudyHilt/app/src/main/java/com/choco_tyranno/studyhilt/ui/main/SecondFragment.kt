@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.choco_tyranno.studyhilt.R
 import com.choco_tyranno.studyhilt.data.MyRepository
+import com.choco_tyranno.studyhilt.di.qualifier.ActivityHash
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -18,6 +19,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     @Inject
     lateinit var repository : MyRepository
 
+    @ActivityHash
     @Inject
     lateinit var applicationHash : String
 

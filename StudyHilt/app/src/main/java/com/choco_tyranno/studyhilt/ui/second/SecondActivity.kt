@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import com.choco_tyranno.studyhilt.R
 import com.choco_tyranno.studyhilt.data.MyRepository
+import com.choco_tyranno.studyhilt.di.qualifier.AppHash
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -13,6 +14,7 @@ class SecondActivity : AppCompatActivity() {
     @Inject
     lateinit var repository : MyRepository
 
+    @AppHash
     @Inject
     lateinit var applicationHash : String
 

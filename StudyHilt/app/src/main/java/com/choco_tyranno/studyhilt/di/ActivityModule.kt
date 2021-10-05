@@ -1,17 +1,17 @@
 package com.choco_tyranno.studyhilt.di
 
-import com.choco_tyranno.studyhilt.di.qualifier.AppHash
+import com.choco_tyranno.studyhilt.di.qualifier.ActivityHash
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.components.SingletonComponent
 
+@InstallIn(ActivityComponent::class)
 @Module
-@InstallIn(SingletonComponent::class)
-object ApplicationModule {
+object ActivityModule {
 
-    @AppHash
+    @ActivityHash
     @Provides
     fun provideHash() = hashCode().toString()
 
