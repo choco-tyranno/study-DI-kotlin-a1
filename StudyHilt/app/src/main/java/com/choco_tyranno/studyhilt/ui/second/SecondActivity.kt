@@ -13,8 +13,12 @@ class SecondActivity : AppCompatActivity() {
     @Inject
     lateinit var repository : MyRepository
 
+    @Inject
+    lateinit var applicationHash : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("SecondActivity", applicationHash)
         Log.d("SecondActivity", repository.hashCode().toString())
 
         setContentView(R.layout.activity_second)

@@ -18,8 +18,12 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     @Inject
     lateinit var repository : MyRepository
 
+    @Inject
+    lateinit var applicationHash : String
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("SecondFragment", applicationHash)
         Log.d("SecondFragment", repository.hashCode().toString())
 
         view.findViewById<Button>(R.id.button_back).setOnClickListener {

@@ -20,8 +20,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     @Inject
     lateinit var repository : MyRepository
 
+    @Inject
+    lateinit var applicationHash : String
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("MainFragment", applicationHash)
         Log.d("MainFragment", repository.hashCode().toString())
 
         view.findViewById<Button>(R.id.button_activity).setOnClickListener {
