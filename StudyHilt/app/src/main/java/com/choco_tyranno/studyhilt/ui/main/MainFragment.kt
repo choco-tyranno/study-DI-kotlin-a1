@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.choco_tyranno.studyhilt.R
 import com.choco_tyranno.studyhilt.data.MyRepository
@@ -18,6 +20,9 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
+    private val activityViewModel by activityViewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
+
     @Inject
     lateinit var repository : MyRepository
 
@@ -27,8 +32,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("MainFragment", "appHash: $applicationHash")
-        Log.d("MainFragment", repository.hashCode().toString())
+        Log.d(TAG, "appHash: $applicationHash")
+        Log.d(TAG, "repository: ${repository.hashCode().toString()}")
+        Log.d(TAG, "viewModel repo: ${viewModel.getRepositoryHash()}")
+        Log.d(TAG, "activityViewModel repo: ${activityViewModel.getRepositoryHash()}")
+        Log.d(TAG, "viewModel: ${viewModel.hashCode().toString()}")
+        Log.d(TAG, "activityViewModel: ${activityViewModel.hashCode().toString()}")
 
         view.findViewById<Button>(R.id.button_activity).setOnClickListener {
             val intent = Intent(requireContext(), SecondActivity::class.java)
@@ -37,7 +46,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         view.findViewById<Button>(R.id.button_fragment).setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_secondFragment)
         }
-
-
+    }
+    companion object{
+        private val TAG = MainFragment::class.java.simpleName
     }
 }
