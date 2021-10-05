@@ -23,7 +23,7 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("SecondFragment", applicationHash)
+        Log.d("SecondFragment", "appHash: $applicationHash")
         Log.d("SecondFragment", repository.hashCode().toString())
 
         view.findViewById<Button>(R.id.button_back).setOnClickListener {

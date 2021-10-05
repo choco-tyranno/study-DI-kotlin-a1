@@ -18,7 +18,7 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("SecondActivity", applicationHash)
+        Log.d("SecondActivity", "appHash: $applicationHash")
         Log.d("SecondActivity", repository.hashCode().toString())
 
         setContentView(R.layout.activity_second)

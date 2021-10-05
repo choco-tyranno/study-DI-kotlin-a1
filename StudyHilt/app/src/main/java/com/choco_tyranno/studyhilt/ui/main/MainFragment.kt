@@ -25,7 +25,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("MainFragment", applicationHash)
+        Log.d("MainFragment", "appHash: $applicationHash")
         Log.d("MainFragment", repository.hashCode().toString())
 
         view.findViewById<Button>(R.id.button_activity).setOnClickListener {
